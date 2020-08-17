@@ -9,7 +9,6 @@ public class Caesor
         
         for (int i = 0; i < message.length(); i++)
         {
-            //ascii = ((message.charAt(i) + key) % 26) + 97;
             asciiValue = (((message.charAt(i) + key) - 97) % 26) + 97;
             newCharacter = (char)asciiValue;
             cypher = cypher + newCharacter;
