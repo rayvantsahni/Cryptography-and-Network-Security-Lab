@@ -1,4 +1,4 @@
-public class Caesor
+public class Main
 {
     
     public static String encrypt(String message, int key)
@@ -20,23 +20,13 @@ public class Caesor
     
     public static String decrypt(String codedMessage, int key)
     {
-        String originalMessage = "";
-        char newCharacter;
-        int asciiValue;
-        
-        for (int i = 0; i < codedMessage.length(); i++)
-        {
-            asciiValue = (((((codedMessage.charAt(i) - key) - 97) % 26) + 26) % 26) + 97;
-            newCharacter = (char)asciiValue;
-            originalMessage = originalMessage + newCharacter;
-        }
-        return originalMessage;
+        return encrypt(codedMessage, 26 - key);
     }
     
     
     public static void main(String args[])
     {
-        String text = "caesarcipher";
+        String text = "byeworld"; //lowercase text
         int k = 3;
         
         System.out.println("Original text is '" + text + "'\n");
