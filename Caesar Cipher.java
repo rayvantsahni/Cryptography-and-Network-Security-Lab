@@ -3,7 +3,7 @@ public class Main
     
     public static String encrypt(String message, int key)
     {
-        String cypher = "";
+        String cipher = "";
         char newCharacter;
         int asciiValue;
         
@@ -11,10 +11,10 @@ public class Main
         {
             asciiValue = (((message.charAt(i) + key) - 97) % 26) + 97;
             newCharacter = (char)asciiValue;
-            cypher = cypher + newCharacter;
+            cipher = cipher + newCharacter;
         }
         
-        return cypher;
+        return cipher;
     }
     
     
