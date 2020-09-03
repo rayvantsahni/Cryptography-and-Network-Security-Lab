@@ -31,7 +31,7 @@ public class Main
 
         for (char i = 'a'; i <= 'z'; i++)
         {
-            if ((i == 'j') || keySet.contains((i)))
+            if (keySet.contains((i)) || (i == 'j'))
                 continue;
             table[j / 5][j % 5] = i;
             j++;
