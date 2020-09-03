@@ -3,7 +3,6 @@ import java.util.*;
 public class Main
 {
     static char[][] table = new char[5][5];
-    static HashSet<Character> keySet = new HashSet<>(); //stores the keyword, helps to remove ignore duplicates while filling the table
     static HashMap<Character, int[]> keyMap = new HashMap<>(); //stores each character as key and its location in the table as value
 
 
@@ -16,36 +15,27 @@ public class Main
         {
             e = keyword.charAt(j);
 
-            if (!keySet.contains(e))
+            if (!keyMap.containsKey(e))
             {
-                keySet.add(e);
+                keyMap.put(e, new int[]{(j-skipped) / 5, (j-skipped) % 5}); //adding character and its position into the HashMap
                 table[(j-skipped) / 5][(j-skipped) % 5] = e;
             }
             else
-            {
                 skipped++;
-            }
         }
 
         j = j - skipped;
 
         for (char i = 'a'; i <= 'z'; i++)
         {
-            if (keySet.contains((i)) || (i == 'j'))
+            if ((keyMap.containsKey(i)) || (i == 'j'))
                 continue;
             table[j / 5][j % 5] = i;
+            keyMap.put(i, new int[]{j / 5, j % 5});
             j++;
         }
 
-        for (int m = 0; m < 5; m++) //filling the HashMap will characters as key and their location in the table as value
-        {
-            for (int n = 0; n < 5; n++)
-            {
-                keyMap.put(table[m][n], new int[]{m, n});
-            }
-        }
     }
-
 
 
 
@@ -135,7 +125,7 @@ public class Main
     public static void main(String[] args)
     {
 
-        String keyword = "monarchy";
+        String keyword = "cowards";
         String plainText = "we will plan tomorrow to attack yesterday";
 
 
