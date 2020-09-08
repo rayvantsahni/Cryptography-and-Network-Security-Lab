@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Main
 {
-    
+
     static int[][] key = {{6, 24, 1},
                          {13, 16, 10},
                          {20, 17, 15}};
@@ -16,9 +16,7 @@ public class Main
         characterPositions = new ArrayList<Integer>(text.length() + m - 1);
 
         for (int i = 0; i < text.length(); i++)
-        {
             characterPositions.add((int) text.charAt(i) - 97);
-        }
 
         while (characterPositions.size() % m != 0)
             characterPositions.add(23);
@@ -51,13 +49,14 @@ public class Main
     }
 
 
-    
+
     public static void main(String[] args)
     {
-        String plainText = "attackistonight";
+        String plainText = "cat";
         int m = 3;
 
         getCharacterPositions(plainText, m);
-        System.out.println(cipher(m));
+        System.out.println("Original Message: " + plainText);
+        System.out.println("Cipher: " + cipher(m));
     }
 }
