@@ -85,7 +85,7 @@ public class Main
         String message = "attack postponed until yesterday"; //original message
         String key = "4312567"; //key
 
-        String text = prepareText(message); //new ready to be encrypted message
+        String text = prepareText(message); //new message, ready to be encrypted
         System.out.println("\nOriginal Message:\n" + message); //printing the original message
 
         System.out.println("\nKey: ");
